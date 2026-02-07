@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre do Alquimista - To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧪</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="tower-header">
+            <h1><i class="fas fa-tower-observation"></i> Torre do Alquimista</h1>
+            <p class="subtitle">Organize suas poções e feitiços nos codex ancestrais</p>
+        </header>
+
+        <main class="tower-main">
+            <div class="left-column">
+                <div class="hourglass-container">
+                    <h2><i class="fas fa-hourglass-half"></i> Ampulheta do Tempo</h2>
+                    <div class="hourglass">
+                        <div class="top-glass">
+                            <div class="sand" id="sand-top"></div>
+                        </div>
+                        <div class="middle"></div>
+                        <div class="bottom-glass">
+                            <div class="sand" id="sand-bottom"></div>
+                        </div>
+                        <div class="stand"></div>
+                    </div>
+                    <div class="timer-display">
+                        <div class="current-task" id="current-task">Nenhuma tarefa ativa</div>
+                        <div class="time" id="timer-display">00:00:00</div>
+                        <div class="timer-controls">
+                            <button id="pause-timer" class="btn-timer" disabled><i class="fas fa-pause"></i> Pausar</button>
+                            <button id="reset-timer" class="btn-timer" disabled><i class="fas fa-redo"></i> Resetar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-codex">
+                    <h2><i class="fas fa-scroll"></i> Novo Codex</h2>
+                    <form id="task-form">
+                        <div class="form-group">
+                            <label for="task-title"><i class="fas fa-quill"></i> Título do Feitiço</label>
+                            <input type="text" id="task-title" placeholder="Ex: Preparar poção de cura" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-desc"><i class="fas fa-book-open"></i> Descrição Arcana</label>
+                            <textarea id="task-desc" rows="3" placeholder="Descreva os ingredientes e passos necessários..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-add"><i class="fas fa-plus-circle"></i> Conjurar Codex</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="codex-header">
+                    <h2><i class="fas fa-book"></i> Codex Alquímicos</h2>
+                    <div class="stats">
+                        <span class="stat" id="total-tasks">Total: 0</span>
+                        <span class="stat" id="completed-tasks">Concluídos: 0</span>
+                        <span class="stat" id="pending-tasks">Pendentes: 0</span>
+                    </div>
+                </div>
+
+                <div class="codex-container" id="codex-container">
+                    <!-- Codex serão inseridos aqui via JavaScript -->
+                    <div class="empty-state">
+                        <i class="fas fa-book-dead"></i>
+                        <p>A torre está vazia... Crie seu primeiro codex para começar!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="tower-footer">
+            <p>Torre do Alquimista &copy; <span id="current-year">2023</span> - Use sabiamente o tempo, pois ele é a mais rara das poções.</p>
+            <div class="footer-icons">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-flask"></i>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Áudio para efeito de areia (opcional) -->
+    <audio id="sand-audio" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-sand-trickle-113.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
